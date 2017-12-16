@@ -1,0 +1,47 @@
+body {
+    padding: 20px;
+}
+
+label {
+    display: block;
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+label.error {
+    font-weight: normal;
+    color: red;
+}
+
+button {
+    display: block;
+    margin-top: 20px;
+}
+#toast-container.toast-top-full-width > div, #toast-container.toast-bottom-full-width > div {
+    width:50%!important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+
+.intl-tel-input.allow-dropdown{
+    width:100%;
+
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    width:100%;
+
+}
+
+.form-group {
+    width: 100%;
+}

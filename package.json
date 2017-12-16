@@ -1,0 +1,26 @@
+{
+  "name": "node_form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git:https://github.com/roybarak80/node_form_validation.git"
+  },
+  "keywords": [
+    "node",
+    "app"
+  ],
+  "author": "Roy Barak",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongodb": "^3.0.0-rc0",
+    "mongoose": "^4.13.7"
+  }
+}
