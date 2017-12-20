@@ -23,67 +23,63 @@ $(document).ready(function () {
 
     $("#phone").intlTelInput(options);
 
-    $("#form").validate({
-        rules: {
-            "name": {
-                //required: true,
-                //minlength: 5
-            },
-            "email": {
-                //required: true,
-                // email: true
-            },"phone": {
-                required: true,      // field is mandatory
-                intlTelNumber: true  // must contain a valid phone number
-            }
-
-        },
-        messages: {
-            "name": {
-                required: function(){toastr.warning("Warning")} ,
-                name : "fddfd"
-            },
-            "email": {
-                required: function(){toastr.warning("Warning")} ,
-                email: "Email is invalid"
-            }
-
-        },
-
-        submitHandler: function (form) { // for demo
-
-            function toJSONString( form ) {
-                var obj = {};
-                var elements = form.querySelectorAll( "input, select, textarea" );
-                for( var i = 0; i < elements.length; ++i ) {
-                    var element = elements[i];
-                    var name = element.name;
-                    var value = element.value;
-
-                    if( name ) {
-                        obj[ name ] = value;
-                    }
+    $('#foo').click(function() {
+        $("#form").validate({
+            rules: {
+                "name": {
+                    //required: true,
+                    //minlength: 5
+                },
+                "email": {
+                    required: true,
+                    // email: true
+                },"phone": {
+                   // required: true,      // field is mandatory
+                    //intlTelNumber: true  // must contain a valid phone number
+                },"textarea": {
+                    // required: true,      // field is mandatory
+                    //intlTelNumber: true  // must contain a valid phone number
                 }
 
-                $.ajax({
-                    type: "POST",
-                    url: '/post-feedback',
-                    data: obj,
-                    success: function( data ){
-                        toastr.success("YYEESSSSSSS");
+
+            },
+            messages: {
+
+                "email": {
+                    required: function () {
+                        toastr.warning("Warning")
                     },
-                    error: function( jqXhr, textStatus, errorThrown ){
-                        console.log( errorThrown );
-                    }
-
-                });
-
-
-
+                    email: "Email is invalid"
+                }
             }
-            toJSONString( form );
-            return false; // for demo
+
+        });
+        if ($('#form').valid()){
+
+
+            var data={
+                email: $('input[name="email"]').val(),
+                phone: $('input[name="phone"]').val(),
+                textarea: $('textarea').val()
+                //add other properties similarly
+            }
+
+
+            $.post({
+
+                data: data,
+
+                url: 'http://localhost:3000/endpoint',
+                success: function(data) {
+
+                    toastr.success("YYEESSSSSSS");
+
+
+                }
+            });
         }
+
+        return false;
     });
 
 });
