@@ -60,7 +60,8 @@ $(document).ready(function () {
             var data={
                 email: $('input[name="email"]').val(),
                 phone: $('input[name="phone"]').val(),
-                textarea: $('textarea').val()
+                textarea: $('textarea').val(),
+                select :$('#exampleFormControlSelect1').val()
                 //add other properties similarly
             }
 
